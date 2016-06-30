@@ -1,0 +1,10 @@
+<div class="jumbotron">
+    <h2>Tarefas</h2>
+    <p>Aplicativo de tarefas desenvolvido com framework Ruby on Rails</p>
+    
+    <% if current_user %>
+        <%= link_to '<i class="fa fa-list" aria-hidden="true"></i> Show tasks'.html_safe, tasks_path, class: "btn btn-primary btn-lg" %>
+    <% else %>
+        <%= link_to '<i class="fa fa-user-plus" aria-hidden="true"></i> Sign up'.html_safe, new_user_registration_path, class:"btn btn-primary btn-lg"%>
+    <% end %>
+</div>

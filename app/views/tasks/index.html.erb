@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-4">
+    <h1 class="text-center"><label class="tituloTask"><i class="fa fa-pause-circle" aria-hidden="true"></i> To do</label></h1>
+    <%= render @to_do%>
+  </div>
+  
+  <div class="col-md-4">
+    <h1 class="text-center"><label class="tituloTask"><i class="fa fa-clock-o" aria-hidden="true"></i> Doing</label></h1>
+    <%= render @doing%>
+  </div>
+  
+  <div class="col-md-4">
+    <h1 class="text-center"><label class="tituloTask"><i class="fa fa-check-circle" aria-hidden="true"></i> Done</label></h1>
+    <%= render @done%>
+  </div>
+</div>

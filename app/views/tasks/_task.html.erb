@@ -1,0 +1,33 @@
+    <div class="panel panel-info">
+        
+        <div class="panel-heading">Created <%= time_ago_in_words(task.created_at) %> </div>
+        
+        <div class="panel-body">
+        
+            <ul class="list-group">
+                
+            <li class="list-group-item active"><%= task.content %></li>
+            <li class="list-group-item active"><%= raw(task.content_html) %></li>
+            
+            <li class="list-group-item"><i class="fa fa-info-circle" aria-hidden="true"></i> <%= link_to 'Show', task %></li>
+            <li class="list-group-item"><i class="fa fa-pencil-square" aria-hidden="true"></i> <%= link_to 'Edit', edit_task_path(task) %></li>
+            <li class="list-group-item"><i class="fa fa-trash-o" aria-hidden="true"></i> <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        
+            </ul>
+        
+        </div>
+        
+        <div class="panel-footer text-center">
+            <ul class="list-group">
+            <% if task.state == "doing" %>
+                <%= link_to '<i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>'.html_safe, change_task_path(task, state: "to_do"), method: :put %>
+                <%= link_to '<i class="fa fa-arrow-circle-right fa-2x" aria-hidden="true"></i>'.html_safe, change_task_path(task, state: "done"), method: :put %>
+            <% elsif task.state == "done" %>
+                <li><%= link_to '<i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>'.html_safe, change_task_path(task, state: "doing"), method: :put %></li>
+            <% elsif task.state == "to_do" %>
+                <li><%= link_to '<i class="fa fa-arrow-circle-right fa-2x" aria-hidden="true"></i>'.html_safe, change_task_path(task, state: "doing"), method: :put %></li>
+            <% end %>
+        
+            </ul>    
+        </div>
+    </div>
